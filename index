@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gorod Krovi Bomb Step Helper</title>
+  <style>
+    :root {
+      --bg-color: #0f1115;
+      --card-bg: #1a1d24;
+      --card-hover: #252932;
+      --accent-color: #e53935;
+      --accent-glow: rgba(229, 57, 53, 0.4);
+      --text-main: #f0f2f5;
+      --text-sub: #9aa0a6;
+      --success: #2e7d32;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    }
+
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-main);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+      padding: 1rem;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+
+    h1 {
+      font-size: 1.8rem;
+      color: var(--accent-color);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    p.subtitle {
+      color: var(--text-sub);
+      font-size: 0.9rem;
+      margin-top: 0.25rem;
+    }
+
+    /* Active Sequence Display Box */
+    .sequence-container {
+      width: 100%;
+      max-width: 600px;
+      background: var(--card-bg);
+      border: 2px solid #333;
+      border-radius: 12px;
+      padding: 1rem;
+      margin-bottom: 1.5rem;
+      text-align: center;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    }
+
+    .sequence-title {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--text-sub);
+      margin-bottom: 0.5rem;
+    }
+
+    .sequence-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      justify-content: center;
+      min-height: 48px;
+      align-items: center;
+    }
+
+    .seq-item {
+      background: var(--accent-color);
+      color: white;
+      padding: 0.4rem 0.8rem;
+      border-radius: 6px;
+      font-weight: bold;
+      font-size: 0.95rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      animation: popIn 0.15s ease-out;
+    }
+
+    .seq-num {
+      background: rgba(0, 0, 0, 0.3);
+      padding: 0.1rem 0.4rem;
+      border-radius: 4px;
+      font-size: 0.85rem;
+    }
+
+    .empty-msg {
+      color: var(--text-sub);
+      font-style: italic;
+      font-size: 0.9rem;
+    }
+
+    /* Grid Layout for Map Locations */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+      width: 100%;
+      max-width: 600px;
+      margin-bottom: 1.5rem;
+    }
+
+    @media (min-width: 500px) {
+      .grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    .location-btn {
+      background: var(--card-bg);
+      border: 2px solid #2d323e;
+      border-radius: 10px;
+      padding: 1.25rem 0.5rem;
+      color: var(--text-main);
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      position: relative;
+      transition: all 0.15s ease;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 90px;
+      user-select: none;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .location-btn:active {
+      transform: scale(0.96);
+    }
+
+    .location-btn.selected {
+      border-color: var(--accent-color);
+      box-shadow: 0 0 12px var(--accent-glow);
+    }
+
+    .badge {
+      position: absolute;
+      top: 6px;
+      right: 6px;
+      background: var(--accent-color);
+      color: white;
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.85rem;
+      font-weight: bold;
+    }
+
+    /* Control Buttons */
+    .controls {
+      display: flex;
+      gap: 1rem;
+      width: 100%;
+      max-width: 600px;
+    }
+
+    .control-btn {
+      flex: 1;
+      padding: 0.8rem;
+      border: none;
+      border-radius: 8px;
+      font-weight: bold;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: opacity 0.15s ease;
+    }
+
+    .control-btn:active {
+      opacity: 0.8;
+    }
+
+    .btn-undo {
+      background: #374151;
+      color: var(--text-main);
+    }
+
+    .btn-reset {
+      background: var(--accent-color);
+      color: white;
+    }
+
+    @keyframes popIn {
+      0% { transform: scale(0.8); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Gorod Krovi</h1>
+    <p class="subtitle">Bomb Step Helper</p>
+  </header>
+
+  <div class="sequence-container">
+    <div class="sequence-title">Active Bomb Defusal Order</div>
+    <div class="sequence-list" id="sequenceList">
+      <span class="empty-msg">Tap locations in the order SOPHIA names them</span>
+    </div>
+  </div>
+
+  <div class="grid">
+    <button class="location-btn" onclick="selectLocation('Dragon Command')">Dragon Command</button>
+    <button class="location-btn" onclick="selectLocation('Armory')">Armory</button>
+
+    <button class="location-btn" onclick="selectLocation('Department Store')">Department Store</button>
+    <button class="location-btn" onclick="selectLocation('Supply Depot')">Supply Depot</button>
+
+    <button class="location-btn" onclick="selectLocation('Infirmary')">Infirmary</button>
+    <button class="location-btn" onclick="selectLocation('Hatchery')">Hatchery</button>
+  </div>
+
+  <div class="controls">
+    <button class="control-btn btn-undo" onclick="undoLast()">Undo Last</button>
+    <button class="control-btn btn-reset" onclick="resetAll()">Reset All</button>
+  </div>
+
+  <script>
+    let sequence = [];
+
+    function selectLocation(name) {
+      // Don't add more than 6 locations
+      if (sequence.length >= 6) return;
+
+      // Don't allow duplicates
+      if (sequence.includes(name)) return;
+
+      sequence.push(name);
+      updateUI();
+    }
+
+    function undoLast() {
+      sequence.pop();
+      updateUI();
+    }
+
+    function resetAll() {
+      sequence = [];
+      updateUI();
+    }
+
+    function updateUI() {
+      const listEl = document.getElementById('sequenceList');
+      const buttons = document.querySelectorAll('.location-btn');
+
+      // Clear buttons state
+      buttons.forEach(btn => {
+        btn.classList.remove('selected');
+        const badge = btn.querySelector('.badge');
+        if (badge) badge.remove();
+      });
+
+      // Update buttons state based on sequence
+      sequence.forEach((name, index) => {
+        buttons.forEach(btn => {
+          if (btn.innerText.includes(name)) {
+            btn.classList.add('selected');
+            const badge = document.createElement('div');
+            badge.className = 'badge';
+            badge.innerText = index + 1;
+            btn.appendChild(badge);
+          }
+        });
+      });
+
+      // Update Top Sequence Display
+      if (sequence.length === 0) {
+        listEl.innerHTML = '<span class="empty-msg">Tap locations in the order SOPHIA names them</span>';
+      } else {
+        listEl.innerHTML = sequence.map((name, idx) => `
+          <div class="seq-item">
+            <span class="seq-num">${idx + 1}</span>
+            <span>${name}</span>
+          </div>
+        `).join('');
+      }
+    }
+  </script>
+
+</body>
+</html>
