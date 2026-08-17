@@ -1,6 +1,347 @@
-<!-- Add this near the top of revelations.html -->
-<nav class="map-switcher">
-  <a href="index.html">Gorod Krovi Bombs</a>
-  <a href="revelations.html" class="active">Revelations Guide</a>
-</nav>
-  <header>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Revelations Main Easter Egg Guide</title>
+
+  <style>
+    :root {
+      --bg-color: #0f1115;
+      --card-bg: #1a1d24;
+      --accent-color: #e53935;
+      --accent-glow: rgba(229, 57, 53, 0.4);
+      --text-main: #f0f2f5;
+      --text-sub: #9aa0a6;
+      --border-color: #2a2e39;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    }
+
+    body {
+      background: linear-gradient(rgba(15, 17, 21, 0.9), rgba(15, 17, 21, 0.9)),
+                  url('background.jpg') center/cover no-repeat fixed;
+      color: var(--text-main);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+      padding-bottom: 40px;
+    }
+
+    /* Top Nav Switcher */
+    .map-switcher {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      padding: 14px;
+      background: var(--card-bg);
+      width: 100%;
+      border-bottom: 1px solid var(--border-color);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+    }
+
+    .map-switcher a {
+      color: var(--text-sub);
+      text-decoration: none;
+      padding: 8px 18px;
+      border-radius: 6px;
+      font-weight: bold;
+      background: var(--bg-color);
+      border: 1px solid var(--border-color);
+      transition: all 0.2s ease;
+    }
+
+    .map-switcher a.active, 
+    .map-switcher a:hover {
+      color: var(--text-main);
+      background: var(--accent-color);
+      border-color: var(--accent-color);
+      box-shadow: 0 0 10px var(--accent-glow);
+    }
+
+    /* Main Container */
+    .container {
+      max-width: 850px;
+      width: 90%;
+      margin-top: 30px;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 24px;
+      color: var(--text-main);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    /* Step Card Layout */
+    .step-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    .step-card h2 {
+      font-size: 1.25rem;
+      color: var(--accent-color);
+      margin-bottom: 12px;
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 6px;
+    }
+
+    .step-card ul {
+      list-style-type: disc;
+      padding-left: 20px;
+      color: var(--text-main);
+      line-height: 1.6;
+    }
+
+    .step-card li {
+      margin-bottom: 8px;
+    }
+
+    /* Image Container & Placeholder Styling */
+    .img-container {
+      margin-top: 15px;
+      text-align: center;
+    }
+
+    .guide-img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 6px;
+      border: 1px solid var(--border-color);
+    }
+
+    .img-placeholder {
+      width: 100%;
+      height: 180px;
+      border: 2px dashed var(--border-color);
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-sub);
+      font-size: 0.9rem;
+      background: rgba(0, 0, 0, 0.2);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- TOP NAVIGATION BAR -->
+  <nav class="map-switcher">
+    <a href="index.html">Gorod Krovi Bombs</a>
+    <a href="revelations.html" class="active">Revelations Guide</a>
+  </nav>
+
+  <div class="container">
+    <h1>Revelations Main Easter Egg Walkthrough</h1>
+
+    <!-- STEP 1 -->
+    <div class="step-card">
+      <h2>1. Start The Easter Egg</h2>
+      <ul>
+        <li>Shoot the 4 Gravestones in Spawn in order (2 Richtofen, 3 Dempsey, 1 Nikolai, 4 Takeo).</li>
+        <li>When hit correctly, Red Flames appear on the Tombstones.</li>
+      </ul>
+
+      <!-- PHOTO PLACEHOLDER 1 -->
+      <div class="img-container">
+        <!-- Replace src with your image path (e.g., src="images/tombstones.jpg") -->
+        <!-- <img src="images/tombstones.jpg" alt="Tombstones order" class="guide-img"> -->
+        <div class="img-placeholder">[ Add Gravestones Photo Here ]</div>
+      </div>
+    </div>
+
+    <!-- STEP 2 -->
+    <div class="step-card">
+      <h2>2. Map Setup</h2>
+      <ul>
+        <li>Build the Guard of Fafnir (Shield).</li>
+        <li>Acquire Keeper Protector Parts.</li>
+        <li>Acquire Apothicon Servant & Lil' Arnies from the Mystery Box.</li>
+        <li>Complete all 4 Corruption Engines.</li>
+        <li>Open Pack-a-Punch inside the Apothicon Stomach.</li>
+      </ul>
+    </div>
+
+    <!-- STEP 3 -->
+    <div class="step-card">
+      <h2>3. Keeper Protector Step</h2>
+      <ul>
+        <li>Locate a Triangle Shaped Stone at a Jump Pad:
+          <ul>
+            <li>Shangri-La to Spawn</li>
+            <li>Kino to Verrückt</li>
+            <li>Verrückt to Mob of the Dead</li>
+            <li>Origins to Mob of the Dead</li>
+          </ul>
+        </li>
+        <li>Build and call the Keeper Protector at a nearby Altar (Requires 5,000 Points).</li>
+        <li>Lead the Keeper to the stone and protect it during the ritual (Lasts ~3 minutes).</li>
+        <li>After completion, pick up the Audio Reel and place it on the Main Stage in Kino Der Toten.</li>
+      </ul>
+
+      <!-- PHOTO PLACEHOLDER 3 -->
+      <div class="img-container">
+        <!-- <img src="images/keeper-ritual.jpg" alt="Keeper Stone Ritual" class="guide-img"> -->
+        <div class="img-placeholder">[ Add Keeper Ritual Stone Photo Here ]</div>
+      </div>
+    </div>
+
+    <!-- STEP 4 -->
+    <div class="step-card">
+      <h2>4. Lil' Arnie Step</h2>
+      <ul>
+        <li>Throw Lil' Arnies into the 3 holes inside the Apothicon Stomach (3 times each = 9 total).</li>
+        <li>Must not miss! If missed, everyone must leave and re-enter the Apothicon Stomach.</li>
+        <li>After 3 are thrown, 3 Margwas will spawn. Kill them to repeat until all 9 are done.</li>
+        <li>Collect the Audio Reel from the bridge and place it on the box in Nacht Der Untoten.</li>
+      </ul>
+
+      <!-- PHOTO PLACEHOLDER 4 -->
+      <div class="img-container">
+        <!-- <img src="images/arnie-holes.jpg" alt="Arnie Holes in Stomach" class="guide-img"> -->
+        <div class="img-placeholder">[ Add Apothicon Stomach Hole Locations Photo Here ]</div>
+      </div>
+    </div>
+
+    <!-- STEP 5 -->
+    <div class="step-card">
+      <h2>5. Collecting Bones</h2>
+      <ul>
+        <li>Apothicon Servant must be upgraded (Estoom-Ooth).</li>
+        <li>Must have a Pack-A-Punched bullet weapon.</li>
+        <li>Shoot all 6 Bones across the map using the upgraded Apothicon Servant:
+          <ul>
+            <li><strong>Shangri-La:</strong> Above the Stamin-Up area / temple ruins.</li>
+            <li><strong>Origins:</strong> On top of the wall near Generator 3 footprint.</li>
+            <li><strong>Verrückt:</strong> Second floor, on the wall near the jump pad.</li>
+            <li><strong>Kino:</strong> On the upper chandelier above the stage.</li>
+            <li><strong>Der Eisendrache:</strong> On the wall during the wall-run section.</li>
+            <li><strong>Nacht:</strong> Second floor, on the fallen roof structure outside.</li>
+          </ul>
+        </li>
+        <li>Bones will appear as a skeleton in Nacht der Untoten (upper level).</li>
+        <li>Shoot the skeleton with an Arnie, then shoot Sophia's body with the upgraded Apothicon Servant.</li>
+      </ul>
+
+      <!-- PHOTO PLACEHOLDER 5 -->
+      <div class="img-container">
+        <!-- <img src="images/bone-locations.jpg" alt="Bone Locations Map" class="guide-img"> -->
+        <div class="img-placeholder">[ Add Bone Locations Photos Here ]</div>
+      </div>
+    </div>
+
+    <!-- STEP 6 -->
+    <div class="step-card">
+      <h2>6. Laser Turret Step</h2>
+      <ul>
+        <li>Go to each Corruption Engine Turret and aim them at the floating sky crystals.</li>
+        <li>After all crystals have lasers connected to them, head to Nacht der Untoten.</li>
+        <li>A large Sophia Orb will spawn. Follow it to Kino and let it interact with the teleporter.</li>
+        <li>Step into the teleporter to enter Samantha's room and pick up the Kronorium on the bed.</li>
+      </ul>
+
+      <!-- PHOTO PLACEHOLDER 6 -->
+      <div class="img-container">
+        <!-- <img src="images/turret-lasers.jpg" alt="Laser Turrets" class="guide-img"> -->
+        <div class="img-placeholder">[ Add Laser Turret Targets Photo Here ]</div>
+      </div>
+    </div>
+
+    <!-- STEP 7 -->
+    <div class="step-card">
+      <h2>7. Apothicon Eggs & Gateworms</h2>
+      <ul>
+        <li>Place the Kronorium on the podium in Kino Der Toten.</li>
+        <li>Locate an Apothicon Egg (1 spawns at a time across set map locations).</li>
+        <li>Place the egg in one of the 4 pools inside the Apothicon Stomach and kill 10 Zombies near it.</li>
+        <li>Pick up the hatched Gateworm and use its audio ping to locate its Rune of Creation in the ground.</li>
+        <li>Repeat for all 4 Eggs/Gateworms to collect all 4 Runes of Creation.</li>
+      </ul>
+
+      <!-- PHOTO PLACEHOLDER 7 -->
+      <div class="img-container">
+        <!-- <img src="images/egg-locations.jpg" alt="Egg and Gateworm locations" class="guide-img"> -->
+        <div class="img-placeholder">[ Add Egg / Rune Spots Photo Here ]</div>
+      </div>
+    </div>
+
+    <!-- STEP 8 -->
+    <div class="step-card">
+      <h2>8. Kino Simon Says Puzzle</h2>
+      <ul>
+        <li>Go to the Kino Projector Room and stand on the teleporter circle.</li>
+        <li>Interact with the Kronorium to reveal a 4-symbol Apothicon sequence.</li>
+        <li>Repeat the sequence by interacting with the corresponding symbols on the wall in order.</li>
+        <li>Complete 4 total rounds (Failing kicks everyone out and resets the round sequence).</li>
+        <li>Grab the Summoning Key from the center platform.</li>
+      </ul>
+
+      <!-- PHOTO PLACEHOLDER 8 -->
+      <div class="img-container">
+        <!-- <img src="images/simon-says.jpg" alt="Simon Says Symbols" class="guide-img"> -->
+        <div class="img-placeholder">[ Add Apothicon Symbols Reference Photo Here ]</div>
+      </div>
+    </div>
+
+    <!-- STEP 9 -->
+    <div class="step-card">
+      <h2>9. Summoning Key & Map Targets</h2>
+      <ul>
+        <li>Throw the Summoning Key at 7 specific items across the map:
+          <ul>
+            <li><strong>Shangri-La:</strong> Focusing Stone above the perk area.</li>
+            <li><strong>Origins:</strong> Clock face near Generator 3 footprint.</li>
+            <li><strong>Der Eisendrache:</strong> Chandelier inside the castle.</li>
+            <li><strong>Verrückt:</strong> Fountain in the courtyard outside.</li>
+            <li><strong>Mob of the Dead:</strong> Poster inside the cell block.</li>
+            <li><strong>Kino:</strong> Chandelier above the stage.</li>
+            <li><strong>Nacht:</strong> Red terminal structure on the upper floor.</li>
+          </ul>
+        </li>
+        <li>Head to the Apothicon Stomach, place the items in the 4 jars, and complete the lockdown.</li>
+      </ul>
+
+      <!-- PHOTO PLACEHOLDER 9 -->
+      <div class="img-container">
+        <!-- <img src="images/key-targets.jpg" alt="Summoning Key Targets" class="guide-img"> -->
+        <div class="img-placeholder">[ Add 7 Summoning Key Target Locations Photos Here ]</div>
+      </div>
+    </div>
+
+    <!-- STEP 10 -->
+    <div class="step-card">
+      <h2>10. Final Boss Fight (Shadowman)</h2>
+      <ul>
+        <li>Head to the Kino Stage Teleporter and step inside to warp to Agartha.</li>
+        <li>Interact with the Kronorium on the altar to start the fight.</li>
+        <li>Place the Summoning Key in one of the 4 corner altars and fill it with soul kills.</li>
+        <li>Throw the filled key at Sophia to fire her laser at the Shadowman.</li>
+        <li>Shoot the Shadowman until he is pushed back inside the Apothicon Mouth.</li>
+        <li>Interact with the Kronorium in front of the mouth to finish him!</li>
+      </ul>
+
+      <!-- PHOTO PLACEHOLDER 10 -->
+      <div class="img-container">
+        <!-- <img src="images/boss-fight.jpg" alt="Boss Fight Arena" class="guide-img"> -->
+        <div class="img-placeholder">[ Add Final Boss Fight Photo Here ]</div>
+      </div>
+    </div>
+
+  </div>
+
+</body>
+</html>
