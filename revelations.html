@@ -16,6 +16,77 @@
       --border-color: #2a2e39;
     }
 
+    :root {
+  /* You can change these variables to change the grid appearance */
+  --grid-square-size: 150px; /* Base size for the squares */
+  --grid-gap: 15px;         /* Gap between squares */
+}
+
+/* 1. The Container for the entire section */
+.photo-gallery-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centering the grid */
+  width: 100%;
+  max-width: 800px; /* Optional: limits width on large screens */
+  margin: 20px auto; /* Centers the whole container */
+  padding: 0 10px; /* Small side padding for mobile */
+}
+
+/* 2. The Main Grid Container */
+.photo-grid {
+  display: grid;
+  /* Automatically creates as many squares as will fit, with a minimum size */
+  grid-template-columns: repeat(auto-fill, minmax(var(--grid-square-size), 1fr));
+  gap: var(--grid-gap);
+  width: 100%;
+  justify-items: center; /* Centers squares within their cells */
+}
+
+/* 3. Styling for the Indivudal Photo Containers/Squares */
+.photo-square {
+  background-color: var(--card-bg, #1a1d24); /* Default card color */
+  border: 1px solid var(--border-color, #2a2e39);
+  border-radius: 8px; /* Matching the card radius */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+  width: 100%; /* Spans the full width of the grid cell */
+  max-width: var(--grid-square-size); /* Caps the size for large screens */
+  height: var(--grid-square-size); /* Forces a perfect square */
+  overflow: hidden; /* Important: keeps image inside the curved border */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer; /* Suggests interactivity */
+}
+
+/* Optional: Subtle hover effect for polish */
+.photo-square:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0 15px var(--accent-glow, rgba(229, 57, 53, 0.3));
+  border-color: var(--accent-color, #e53935);
+}
+
+/* 4. Styling the Images Inside the Squares */
+.photo-square img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* ESSENTIAL: crops image nicely to fill square without stretching */
+  transition: opacity 0.3s ease;
+}
+
+/* 5. Styling for the Placeholder Text */
+.photo-placeholder {
+  color: var(--text-sub, #9aa0a6);
+  font-size: 0.85rem;
+  font-weight: bold;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 5px;
+}
+
+
     * {
       box-sizing: border-box;
       margin: 0;
@@ -156,13 +227,63 @@
         <li>When hit correctly, Red Flames appear on the Tombstones.</li>
       </ul>
 
-      <!-- PHOTO PLACEHOLDER 1 -->
-      <div class="img-container">
-        <!-- Replace src with your image path (e.g., src="images/tombstones.jpg") -->
-        <!-- <img src="images/tombstones.jpg" alt="Tombstones order" class="guide-img"> -->
-        <div class="img-placeholder">[ Add Gravestones Photo Here ]</div>
-      </div>
+     <div class="photo-gallery-section">
+  <!-- Section Title (e.g., 'Summoning Key Targets') -->
+  <p class="guide-subtitle">Locations</p>
+
+  <!-- This is the container where your sketched squares live -->
+  <div class="photo-grid">
+
+    <!-- SQUARE 1 (Placeholder) -->
+    <div class="photo-square">
+      <!-- To add a real image, delete the placeholder <div> below
+           and replace it with an <img> tag:
+           <img src="images/key-spawn.jpg" alt="Summoning Key Spawn Location"> -->
+      <div class="photo-placeholder">Nacht</div>
     </div>
+
+    <!-- SQUARE 2 (Placeholder) -->
+    <div class="photo-square">
+      <div class="photo-placeholder">Der Eisendrache</div>
+    </div>
+
+    <!-- SQUARE 3 (Placeholder) -->
+    <div class="photo-square">
+      <div class="photo-placeholder">Shangri-La</div>
+    </div>
+
+    <!-- SQUARE 4 (Placeholder) -->
+    <div class="photo-square">
+      <div class="photo-placeholder">Verrückt</div>
+    </div>
+
+    <!-- SQUARE 5 (Example WITH an actual image) -->
+    <div class="photo-square">
+      <!-- This square already has an image ready. I used your barrel photo from previous chats! -->
+      <img src="images/verruckt-barrel.jpg" alt="Summoning Key Target: Verruckt Barrel">
+    </div>
+
+    <!-- SQUARE 6 (Placeholder) -->
+    <div class="photo-square">
+      <div class="photo-placeholder">Origins</div>
+    </div>
+
+    <!-- SQUARE 7 (Placeholder) -->
+    <div class="photo-square">
+      <div class="photo-placeholder">Mob</div>
+    </div>
+
+    <!-- SQUARE 8 (Placeholder) -->
+    <div class="photo-square">
+      <div class="photo-placeholder">Kino</div>
+    </div>
+
+    <!-- Add as many <div class="photo-square"> blocks as you need for the section! -->
+
+  </div>
+</div>
+
+
 
     <!-- STEP 2 -->
     <div class="step-card">
